@@ -3,8 +3,8 @@ import numpy as np
 import glob
 
 # PARAMÈTRES DU DAMIER
-CHECKERBOARD = (9, 6) # À ajuster selon votre damier
-SQUARE_SIZE = 17      # Taille du carré en mm (MESUREZ RÉELLEMENT SUR L'IPAD)
+CHECKERBOARD = (9, 6)
+SQUARE_SIZE = 17      # Taille du carré en mm
 
 def calibrate_stereo():
     objp = np.zeros((CHECKERBOARD[0] * CHECKERBOARD[1], 3), np.float32)
@@ -33,8 +33,6 @@ def calibrate_stereo():
             imgpoints_r.append(corners_r)
             print(f"Paire valide : {img_l}")
 
-    # On utilise vos matrices intrinsèques déjà calculées
-    # (Remplacez par vos valeurs exactes obtenues précédemment)
     mtx_l = np.array([[856.59, 0, 649.69], [0, 857.35, 400.66], [0, 0, 1]])
     dist_l = np.zeros(5) # Mettre vos param_dist ici
     mtx_r = np.array([[859.75, 0, 646.64], [0, 859.33, 376.90], [0, 0, 1]])
